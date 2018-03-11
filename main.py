@@ -21,7 +21,7 @@ def main():
 	s.listen(10)
 	while True:
 		conn, addr = s.accept()
-		data = conn.recv(256)
+		data = conn.recv(4096)
 		logging = open('log.txt', 'a')
 		try:
 			logging.write('\n\t[!] ' + str(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + ' ' + addr[0] + ':' + str(addr[1]) + ' sent:\n' + data.decode(errors='ignore').rstrip('\n')+'\n')
